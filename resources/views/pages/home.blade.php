@@ -17,19 +17,19 @@
     <div class="col-md-4 col-sm-12 h-100">
         <p class="h5 recent border-bottom border-1 pb-2 mb-2 mt-sm-4">Recent Posts</p>
         @foreach($recent as $recentPost)
-            <div class="card border-0 mb-3">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <img src="{{ $recentPost->image_url }}" alt="cuteie cat" class="img-fluid rounded recent-image">
-                    </div>
-                    <div class="col-md-8 col-sm-6">
-                        <div class="card-body p-0">
-                            <p class="h5 mt-2 recent-title">{{ $recentPost->title }}</p>
-                            <p class="small recent-content">{{ $recentPost->description }}</p>
-                        </div>
+        <div class="card border-0 mb-3">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <img src="{{ $recentPost->image_url }}" alt="cuteie cat" class="img-fluid rounded recent-image">
+                </div>
+                <div class="col-md-8 col-sm-6">
+                    <div class="card-body p-0">
+                        <p class="h5 mt-2 recent-title">{{ $recentPost->title }}</p>
+                        <p class="small recent-content">{{ $recentPost->description }}</p>
                     </div>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 
@@ -37,22 +37,22 @@
     <div class="col-md-9 col-sm-12">
         <p class="h5 more-post border-bottom border-1 pb-2 mt-5 mb-2">More Posts</p>
         @foreach ($posts as $post)
-            <div class="card border-0 mb-3">
-                <div class="row">
-                    <div class="col-6 col-md-3">
-                        <img src="{{ $post->image_url }}" alt="post-image" class="img-fluid rounded w-100 more-image">
-                    </div>
-                    <div class="col-6 col-md-9">
-                        <div class="card-body p-0">
-                            <strong class="d-inline-block mb-2 text-primary-emphasis more-category">{{ $post->name }}</strong>
-                            <p class="card-title h5 more-title">{{ $post->title }}</p>
-                            <p class="card-subtitle small text-secondary more-created">Posted on {{ $post->created_at }} by {{ $post->author }}</p>
-                            <p class="card-text mt-2 more-description">{{ $post->description }}</p>
-                            <a href="{{ url('/content/' . $post->id) }}" class="text-decoration-none text-black border-bottom border-1 border-black p-2 continue-reading">Continue Reading...</a>
-                        </div>
+        <div class="card border-0 mb-3">
+            <div class="row">
+                <div class="col-6 col-md-3">
+                    <img src="{{ $post->image_url }}" alt="post-image" class="img-fluid rounded w-100 more-image">
+                </div>
+                <div class="col-6 col-md-9">
+                    <div class="card-body p-0">
+                        <strong class="d-inline-block mb-2 text-primary-emphasis more-category">{{ $post->name }}</strong>
+                        <p class="card-title h5 more-title">{{ $post->title }}</p>
+                        <p class="card-subtitle small text-secondary more-created">Posted on {{ $post->created_at }} by {{ $post->author }}</p>
+                        <p class="card-text mt-2 more-description">{{ $post->description }}</p>
+                        <a href="{{ url('/content/' . $post->id) }}" class="text-decoration-none text-black border-bottom border-1 border-black p-2 continue-reading">Continue Reading...</a>
                     </div>
                 </div>
             </div>
+        </div>
         @endforeach
     </div>
 
@@ -99,14 +99,6 @@
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="post-description" class="form-label">Post Description</label>
-                                        <textarea class="form-control" name="description" id="post-description" rows="2" placeholder="Enter post description"></textarea>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="post-content" class="form-label">Post Content</label>
-                                        <textarea class="form-control" id="post-content" name="content" rows="5" placeholder="Enter post content"></textarea>
-                                    </div>
-                                    <div class="mb-3">
                                         <label for="post-image" class="form-label">Post Image URL</label>
                                         <input type="text" class="form-control" id="post-image" name="image_url" placeholder="Enter image URL">
                                     </div>
@@ -114,7 +106,15 @@
                                         <label for="post-author" class="form-label">Author</label>
                                         <input type="text" class="form-control" id="post-author" name="author" placeholder="Enter author name">
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="post-description" class="form-label">Post Description</label>
+                                        <textarea class="form-control" name="description" id="post-description" rows="2" placeholder="Enter post description"></textarea>
+                                    </div>
 
+                                    <div class="mb-3">
+                                        <label for="post-content" class="form-label">Post Content</label>
+                                        <textarea class="form-control" id="post-content" name="content" rows="5" placeholder="Enter post content"></textarea>
+                                    </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                                         <button type="submit" class="btn btn-primary">Save changes</button>
