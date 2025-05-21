@@ -34,18 +34,24 @@ class BlogController extends Controller
     // Get content of specific blog post
     public function getContent($id)
     {
-        $posts = DB::table('blogs')->where('id', $id)->first();
-        $categories = DB::table('categories')->get();
+        $posts = DB::table('blogs as b')
+            ->join('categories as c', 'c.id', '=', 'b.categories_id')
+            ->select('b.*', 'c.name as name')
+            ->where('b.id', $id)
+            ->first();
 
-        return view('pages.content', compact('posts', 'categories'));
+        return view('pages.content', compact('posts'));
     }
 
-    // Get recent and all blog posts
+    // Get 2 recent posts, all blog posts, and all categories
     public function getPost()
     {
         $recent = DB::table('blogs')->orderBy('created_at', 'desc')->take(2)->get();
         $categories = DB::table('categories')->get();
-        $posts = DB::table('blogs')->get();
+        $posts = DB::table('blogs as b')
+            ->join('categories as c', 'c.id', '=', 'b.categories_id')
+            ->select('b.*', 'c.name as name')
+            ->get();
 
         return view('pages.home', compact('categories', 'posts', 'recent'));
     }
@@ -58,9 +64,9 @@ class BlogController extends Controller
         $posts = DB::table('blogs as b')
             ->join('categories as c', 'c.id', '=', 'b.categories_id')
             ->where('b.categories_id', $category->id)
-            ->select('b.*', 'c.name as category_name')
+            ->select('b.*', 'c.name as name')
             ->get();
-
+            
         return view('pages.categories', compact('category','posts'));
     }
 }

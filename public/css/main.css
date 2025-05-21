@@ -1,4 +1,14 @@
-.most-popular {
+:root {
+    --title-font: "Libre Baskerville", serif;
+    --created-font: "Source Sans 3", sans-serif;
+    --text-font: "Work Sans", sans-serif;
+    --text-shadow: 1px 1px 3px rgba(119, 105, 105, 0.5);
+    --primary-color: #a0455f;
+    --hover: #842c4e;
+    --layout-color: #dacbcb;
+}
+
+.header {
     background-image: linear-gradient(
             to right,
             rgba(79, 75, 75, 0.5),
@@ -8,67 +18,67 @@
     background-size: cover;
     height: auto;
 }
-.home-title,
-.recent-title,
-.popular-title,
-.add-title,
-.social-title,
-#addPostLabel,
+
+.header-title,
+.recent,
+.more-post,
+.add,
+.social,
 .footer-heading,
-.footer-copyright,
-.brand, .category {
-    font-family: "Libre Baskerville", serif;
+#addPostLabel,
+.brand,
+.footer-copyright {
+    font-family: var(--title-font);
     font-style: italic;
 }
 
-.home-title {
+.header-title {
     color: #f2e9ed;
     font-weight: 700;
-    text-shadow: 1px 1px 3px rgba(119, 105, 105, 0.5);
+    text-shadow: var(--text-shadow);
 }
 
-.home-subtitle {
+.header-posted {
     color: #dedede;
-    text-shadow: 1px 1px 3px rgba(119, 105, 105, 0.5);
-}
-.home-subtitle, .category-created {
-    font-family: "Source Sans 3", sans-serif;
+    text-shadow: var(--text-shadow);
 }
 
-.home-text,
-.recent-content-main,
-.popular-content-main,
+.header-created,
+.category-created {
+    font-family: var(--created-font);
+}
+
+.header-text,
+.recent-conten,
+.more-content,
 .add-btn,
 .footer-text,
 .nav-link,
 input,
 select,
 option,
-.continue-reading, .category-description {
-    font-family: "Work Sans", sans-serif;
-}
-
-.home-text {
-    font-size: 14px;
-    color: white;
+.continue-reading,
+.category-description,
+.social-link {
+    font-family: var(--text-font);
 }
 
 .add-btn {
     height: 50px;
-    background-color: #a0455f;
+    background-color: var(--primary-color);
 }
 
 .add-btn:hover {
-    background-color: #842c4e;
+    background-color: var(--hover);
 }
 
 .navbar,
 footer {
-    background-color: #dacbcb;
+    background-color: var(--layout-color);
 }
 
 .social-icon {
-    color: #842c4e;
+    color: var(--primary-color);
 }
 
 .nav-link {
@@ -77,7 +87,7 @@ footer {
 }
 
 .nav-link:hover {
-    color: #a0455f;
+    color: var(--primary-color);
     font-weight: 700;
-    border-bottom: 1px solid #a0455f;
+    border-bottom: 1px solid var(--primary-color);
 }
