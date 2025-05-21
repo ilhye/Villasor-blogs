@@ -1,0 +1,18 @@
+Command List
+- composer create-project laravel/laravel blogs
+- npm i --save bootstrap @popperjs/core
+- npm i --save-dev sass
+- npm i bootstrap-icons
+- npm install
+- php artisan make:controller BlogController
+- php artisan tinker
+- DB::connection()->getPDO()
+- php artisan make:migration blogs
+- php artisan make:migration categories
+- php artisan migrate
+- php artisan make:seeder BlogSeeder
+- php artisan make:seeder CategoriesSeeder
+- php artisan db:seed --class=BlogSeeder
+- php artisan db:seed --class=CategoriesSeeder
+- npm run dev
+- php artisan
