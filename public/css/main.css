@@ -1,0 +1,83 @@
+.most-popular {
+    background-image: linear-gradient(
+            to right,
+            rgba(79, 75, 75, 0.5),
+            rgba(53, 50, 50, 0)
+        ),
+        url("https://i.pinimg.com/736x/56/a1/1e/56a11e4d59d5fec488e43af6c251ce42.jpg");
+    background-size: cover;
+    height: auto;
+}
+.home-title,
+.recent-title,
+.popular-title,
+.add-title,
+.social-title,
+#addPostLabel,
+.footer-heading,
+.footer-copyright,
+.brand, .category {
+    font-family: "Libre Baskerville", serif;
+    font-style: italic;
+}
+
+.home-title {
+    color: #f2e9ed;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(119, 105, 105, 0.5);
+}
+
+.home-subtitle {
+    color: #dedede;
+    text-shadow: 1px 1px 3px rgba(119, 105, 105, 0.5);
+}
+.home-subtitle, .category-created {
+    font-family: "Source Sans 3", sans-serif;
+}
+
+.home-text,
+.recent-content-main,
+.popular-content-main,
+.add-btn,
+.footer-text,
+.nav-link,
+input,
+select,
+option,
+.continue-reading, .category-description {
+    font-family: "Work Sans", sans-serif;
+}
+
+.home-text {
+    font-size: 14px;
+    color: white;
+}
+
+.add-btn {
+    height: 50px;
+    background-color: #a0455f;
+}
+
+.add-btn:hover {
+    background-color: #842c4e;
+}
+
+.navbar,
+footer {
+    background-color: #dacbcb;
+}
+
+.social-icon {
+    color: #842c4e;
+}
+
+.nav-link {
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+.nav-link:hover {
+    color: #a0455f;
+    font-weight: 700;
+    border-bottom: 1px solid #a0455f;
+}
