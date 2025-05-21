@@ -27,9 +27,14 @@
 .footer-heading,
 #addPostLabel,
 .brand,
-.footer-copyright {
+.footer-copyright,
+.category {
     font-family: var(--title-font);
     font-style: italic;
+}
+
+.post-title {
+    font-family: var(--title-font);
 }
 
 .header-title {
@@ -44,7 +49,8 @@
 }
 
 .header-created,
-.category-created {
+.category-created, 
+.post-created {
     font-family: var(--created-font);
 }
 
@@ -59,7 +65,9 @@ select,
 option,
 .continue-reading,
 .category-description,
-.social-link {
+.social-link,
+.post-description,
+.post-content {
     font-family: var(--text-font);
 }
 

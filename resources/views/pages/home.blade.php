@@ -91,6 +91,14 @@
                                         </select>
                                     </div>
                                     <div class="mb-3">
+                                        <label for="post-status" class="form-label">Post Category</label>
+                                        <select name="status_id" id="post-status" class="form-select">
+                                            @foreach ($statuses as $status)
+                                            <option value="{{ $status->id }}">{{ $status->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="post-description" class="form-label">Post Description</label>
                                         <textarea class="form-control" name="description" id="post-description" rows="2" placeholder="Enter post description"></textarea>
                                     </div>

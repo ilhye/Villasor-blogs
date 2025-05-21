@@ -21,6 +21,7 @@ class BlogSeeder extends Seeder
             'author' => 'John Doe',
             'created_at' => '05/10/2024',
             'content' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nibh mauris, interdum ac tellus vitae, gravida dapibus felis. Ut dictum non magna id aliquet. Phasellus luctus vestibulum quam, at consectetur nisi. Suspendisse ligula dui, eleifend quis pulvinar sit amet, eleifend ac turpis. Proin sem quam, sollicitudin luctus sapien sit amet, sagittis molestie erat.',
+            'status_id' => 1
         ]);
     }
 }

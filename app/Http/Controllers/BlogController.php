@@ -25,7 +25,8 @@ class BlogController extends Controller
             'categories_id' => $request->input('categories_id'),
             'content' => $request->input('content'),
             'author' => $request->input('author'),
-            'created_at' => $request->input('created_at')
+            'created_at' => $request->input('created_at'),
+            'status_id' => $request->input('status_id')
         ]);
 
         return redirect()->route('home');
@@ -48,12 +49,13 @@ class BlogController extends Controller
     {
         $recent = DB::table('blogs')->orderBy('created_at', 'desc')->take(2)->get();
         $categories = DB::table('categories')->get();
+        $statuses = DB::table('statuses')->get();
         $posts = DB::table('blogs as b')
             ->join('categories as c', 'c.id', '=', 'b.categories_id')
             ->select('b.*', 'c.name as name')
             ->get();
 
-        return view('pages.home', compact('categories', 'posts', 'recent'));
+        return view('pages.home', compact('categories', 'posts', 'recent', 'statuses'));
     }
 
     // Get post by category
