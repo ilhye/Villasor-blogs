@@ -14,16 +14,16 @@ class CategoriesSeeder extends Seeder
     public function run(): void
     {
         DB::table('categories')->insert([
-            ['name' => 'Education'],
-            ['name' => 'Entertainment'],
-            ['name' => 'Technology'],
-            ['name' => 'Sports'],
-            ['name' => 'Politics'],
-            ['name' => 'Health'],
-            ['name' => 'Travel'],
-            ['name' => 'Food'],
-            ['name' => 'Lifestyle'],
-            ['name' => 'Business'],
+            ['name' => 'Education', 'status' => 1],
+            ['name' => 'Entertainment', 'status' => 3],
+            ['name' => 'Technology', 'status' => 4],
+            ['name' => 'Sports', 'status' => 5],
+            ['name' => 'Politics', 'status' => 62],
+            ['name' => 'Health', 'status' => 2],
+            ['name' => 'Travel', 'status' => 8],
+            ['name' => 'Food', 'status' => 1],
+            ['name' => 'Lifestyle', 'status' => 1],
+            ['name' => 'Business', 'status' => 1],
         ]);
     }
 }
