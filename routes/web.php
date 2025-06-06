@@ -13,3 +13,5 @@ Route::get('/recent', [BlogController::class, 'getRecentPost'])->name('recent');
 
 Route::get('/category/{name}', [BlogController::class, 'getPostsByCategory'])->name('post');
 
+Route::get('/blog', [BlogController::class, 'blogModel']);
+
