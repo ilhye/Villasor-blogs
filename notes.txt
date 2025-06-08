@@ -14,5 +14,7 @@ Command List
 - php artisan make:seeder CategoriesSeeder
 - php artisan db:seed --class=BlogSeeder
 - php artisan db:seed --class=CategoriesSeeder
+** ACTIVITY 3 **
+- php artisan make:model Category 
 - npm run dev
 - php artisan

@@ -15,3 +15,4 @@ Route::get('/category/{name}', [BlogController::class, 'getPostsByCategory'])->n
 
 Route::get('/blog', [BlogController::class, 'blogModel']);
 
+Route::get('/blog/stats', [BlogController::class, 'blogStatus']);

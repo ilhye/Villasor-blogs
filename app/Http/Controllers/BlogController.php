@@ -7,6 +7,7 @@ use App\Models\MyBlog;
 use App\Models\Status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use NunoMaduro\Collision\Adapters\Phpunit\State;
 
 class BlogController extends Controller
 {
@@ -21,24 +22,6 @@ class BlogController extends Controller
     // Function to create blog post
     public function createBlog(Request $request)
     {
-        // DB::table('blogs')->insert([
-        //     'title' => $request->input('title'),
-        //     'image_url' => $request->input('image_url'),
-        //     'description' => $request->input('description'),
-        //     'category_id' => $request->input('category_id'),
-        //     'content' => $request->input('content'),
-        //     'author' => $request->input('author'),
-        //     'status_id' => $request->input('status_id')
-        // ], [
-        //     'title' => $request->input('title'),
-        //     'image_url' => $request->input('image_url'),
-        //     'description' => $request->input('description'),
-        //     'category_id' => $request->input('category_id'),
-        //     'content' => $request->input('content'),
-        //     'author' => $request->input('author'),
-        //     'status_id' => $request->input('status_id')
-        // ]);
-
         $post = new Blog();
         $post->title = $request->input('title');
         $post->image_url = $request->input('image_url');
@@ -48,7 +31,6 @@ class BlogController extends Controller
         $post->author = $request->input('author');
         $post->status_id = $request->input('status_id');
         $post->save();
-        // dd($post->id);
 
         return redirect()->route('home');
     }
@@ -95,30 +77,14 @@ class BlogController extends Controller
 
     public function blogModel()
     {
-        //return Blog::all();
-        // return Status::all();
-        // return MyBlog::all(); 
-        // $blog = Blog::find(1);
-        // return $blog;
-        // return $blog->title;
-        // return $blog->title . " - " .$blog->description;
-        // return Blog::findOrFail(5);
-        // $post = Blog::where('status_id', 1)
-        //    ->get();
-        // $post = Blog::where('status_id', 1)
-        //     ->where('category_id', 1)
-        //     ->get();
-        // $post = Blog::find(1)->delete(1);
-
-        //$post = Blog::findOrFail(11)->delete(1);
         $this->softDelete(11);
-        // return $post;
-        //$blogs = Blog::all();
-        // return $blogs;
     }
     
     public function softDelete($id) {
-        // Blog::onlyTrashed()->findOrFail($id)->forceDelete();
-        // Blog::onlyTrashed()->findOrFail($id)->restore();
+    }
+
+    public function blogStatus() {
+        $statuses = Status::all();
+        return view('pages.status', compact('statuses'));
     }
 }
