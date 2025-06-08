@@ -28,7 +28,7 @@
 #addPostLabel,
 .brand,
 .footer-copyright,
-.category, .status-title {
+.category, .status-title, .category-title {
     font-family: var(--title-font);
     font-style: italic;
 }

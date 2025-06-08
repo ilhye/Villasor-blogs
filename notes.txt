@@ -1,4 +1,4 @@
-Command List
+COMMAND LISTS
 - composer create-project laravel/laravel blogs
 - npm i --save bootstrap @popperjs/core
 - npm i --save-dev sass
@@ -18,3 +18,10 @@ Command List
 - php artisan make:model Category 
 - npm run dev
 - php artisan
+
+
+TO FIX:
+- navigation (add list of categories and status)
+- a tag for linking specific data
+- class name
+- route (start with /blog)

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\MyBlog;
 use App\Models\Status;
 use Illuminate\Http\Request;
@@ -86,5 +87,10 @@ class BlogController extends Controller
     public function blogStatus() {
         $statuses = Status::all();
         return view('pages.status', compact('statuses'));
+    }
+
+    public function getCategory() {
+        $categories = Category::all();
+        return view('pages.category', compact('categories'));
     }
 }
