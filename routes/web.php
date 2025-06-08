@@ -18,3 +18,7 @@ Route::get('/blog', [BlogController::class, 'blogModel']);
 Route::get('/blog/stats', [BlogController::class, 'blogStatus']);
 
 Route::get('/blog/category', [BlogController::class, 'getCategory']);
+
+Route::get('/blog/posts', [BlogController::class, 'getAllPosts']);
+
+Route::delete('/blog/{id}', [BlogController::class, 'softDeleteBlog'])->name('blog.delete');;

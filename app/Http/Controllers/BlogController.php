@@ -48,7 +48,7 @@ class BlogController extends Controller
         return view('pages.content', compact('posts'));
     }
 
-    // Get 2 recent posts, all blog posts, and all categories
+    //Get 2 recent posts, all blog posts, and all categories
     public function getPost()
     {
         $recent = DB::table('blogs')->orderBy('created_at', 'desc')->take(2)->get();
@@ -84,13 +84,27 @@ class BlogController extends Controller
     public function softDelete($id) {
     }
 
-    public function blogStatus() {
+    // List of statuses
+    public function getStatus() {
         $statuses = Status::all();
         return view('pages.status', compact('statuses'));
     }
 
+    // List of blog statuses
     public function getCategory() {
         $categories = Category::all();
         return view('pages.category', compact('categories'));
+    }
+
+    // Soft delete a blog post
+    public function softDeleteBlog($id) {
+        Blog::find($id)->delete();
+        return redirect()->back()->with('success', 'Post deleted!');
+    }
+
+    // Get all posts
+    public function getAllPosts() {
+        $posts = Blog::all();
+        return view('pages.posts', compact('posts'));
     }
 }
