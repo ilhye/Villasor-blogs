@@ -25,3 +25,4 @@ TO FIX:
 - a tag for linking specific data
 - class name
 - route (start with /blog)
+- update ui
