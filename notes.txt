@@ -16,9 +16,13 @@ COMMAND LISTS
 - php artisan db:seed --class=CategoriesSeeder
 ** ACTIVITY 3 **
 - php artisan make:model Category 
+- php artisan make:model Status
 - npm run dev
 - php artisan
 
 
 TO FIX:
-- class name
+- 
+
+TO ADD:
+- alert when successful and if form is null

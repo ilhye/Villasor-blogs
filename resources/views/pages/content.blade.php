@@ -25,10 +25,10 @@
                         <button type="submit" class="btn btn-danger position-absolute top-0 end-0 m-3 w-25">Delete Post</button>
                     </form>
                     <p><span class="badge p-2 position-absolute top-0 start-0 m-3 shadow">{{ $post->status_name }}</span> </p>
-                    <strong class="d-inline-block mb-2 text-primary-emphasis more-category mt-2">{{ $post->category_name }}</strong>
-                    <p class="card-title h5 more-title">{{ $post->title }}</p>
-                    <p class="card-subtitle small text-secondary more-created">Posted on {{ $post->created_at }} by {{ $post->author }}</p>
-                    <p class="card-text mt-2 more-description">{{ $post->description }}</p>
+                    <strong class="d-inline-block mb-2 text-primary-emphasis blog-category mt-2">{{ $post->category_name }}</strong>
+                    <p class="card-title h5 blog-title">{{ $post->title }}</p>
+                    <p class="card-subtitle small text-secondary blog-created">Posted on {{ $post->created_at }} by {{ $post->author }}</p>
+                    <p class="card-text mt-2 blog-description">{{ $post->description }}</p>
                 </div>
             </div>
         </div>

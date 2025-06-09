@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="row mt-4 mb-4">
-    <p class="h1 category-title mt-4 mb-4">List of Categories</p>
+    <p class="h1 title mt-4 mb-4">List of Categories</p>
     <ul>
         @foreach ($categories as $category)
         <li class="mb-2 ms-3">
