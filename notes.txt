@@ -17,12 +17,12 @@ COMMAND LISTS
 ** ACTIVITY 3 **
 - php artisan make:model Category 
 - php artisan make:model Status
+- php artisan make:request BlogRequest
 - npm run dev
 - php artisan
-
 
 TO FIX:
 - 
 
 TO ADD:
-- alert when successful and if form is null
+- add authors table

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BlogRequest;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\MyBlog;
@@ -21,7 +22,7 @@ class BlogController extends Controller
     }
 
     // Function to create blog post
-    public function createBlog(Request $request)
+    public function createBlog(BlogRequest $request)
     {
         $post = new Blog();
         $post->title = $request->input('title');
@@ -32,7 +33,7 @@ class BlogController extends Controller
         $post->status_id = $request->input('status_id');
         $post->save();
 
-        return redirect()->route('newPost');
+        return redirect()->route('newPost')->with('success', 'Post created successfully!');;
     }
 
     public function blogModel()

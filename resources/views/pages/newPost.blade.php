@@ -3,6 +3,22 @@
 @section('content')
 <div class="w-50 m-auto border p-4 rounded shadow mt-5 mb-4">
     <p class="h2 title text-center mb-2">Add Posts</p>
+
+    <!-- Inputs stored successfully -->
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <!-- Inputs not stored successfully -->
+    @if($errors -> any())
+        @foreach($errors -> all() as $error)
+        <div class="alert alert-danger"> {{ $error }} </div>
+        @endforeach
+    @endif
+
+    <!-- Add new blog post -->
     <form method="POST" action="{{ route('pages.submit') }}">
         @csrf
         <div class="mb-3">
