@@ -1,10 +1,12 @@
 # Blogs
-Laravel-based blogging platform developed as Activity 1 (Finals) for a Web Development course.
+Laravel-based blogging platform developed as Activity 3 (Finals) for a Web Development course.
 
 ## Features
 - Responsive design using Bootstrap
 - Database migrations and seeders
-- Save data to database
+- Save data to the database
+- Soft delete data
+- Display blogs, categories and statuses
 
 ## Pre-requisite
 - Node.js and npm
@@ -14,12 +16,17 @@ Laravel-based blogging platform developed as Activity 1 (Finals) for a Web Devel
   
 ## Screenshots
 <div align="center">
-    <img width="577" alt="image1" src="https://github.com/user-attachments/assets/ce884f26-558f-487b-8650-599813028f57" />
-    <img width="501" alt="image2" src="https://github.com/user-attachments/assets/bf9f63bd-8f15-482f-b8a2-09ab0398b636" />
-    <img width="518" alt="image3" src="https://github.com/user-attachments/assets/71f45fd6-d0fe-4b0f-9f87-d5041689d2e4" />
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <img width="352" alt="image4" src="https://github.com/user-attachments/assets/168f61c2-7d04-45a7-b953-71ff836e4185" />
+    <img width="504" alt="addPost" src="https://github.com/user-attachments/assets/e0a908b1-98d1-4efe-a5e3-d56b2ebddf3d" />
+    <img width="498" alt="categories" src="https://github.com/user-attachments/assets/975eb057-3ddb-4033-af9c-46adf4da5a01" />
+    <img width="496" alt="specat" src="https://github.com/user-attachments/assets/a0f8e4b4-12d3-4609-a263-9f9a14022b15" />
+    <img width="496" alt="status" src="https://github.com/user-attachments/assets/b9b0f7ad-cc33-4194-9b32-6ef9b8f06757" />
+    <img width="494" alt="specstat" src="https://github.com/user-attachments/assets/b12c4c29-dc5e-4f58-bd02-0f561e708e94" />
+</div>
 
+### Soft Delete
+<div align="center">
+    <img width="498" alt="softdel1" src="https://github.com/user-attachments/assets/cc5c04c9-0cba-4874-bb4b-0ed2e6bb5520" />
+    <img width="702" alt="softdel2" src="https://github.com/user-attachments/assets/a15b216a-9778-477b-a09a-dcf4d7710e05" />
 </div>
 
 ## Run Code
