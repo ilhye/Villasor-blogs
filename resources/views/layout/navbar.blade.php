@@ -1,4 +1,3 @@
-<p class="h1 text-center brand mt-2 mb-2">MyBlog</p>
 <nav class="navbar navbar-expand-lg">
     <div class="container d-flex flex-column align-items-center">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -8,37 +7,16 @@
         <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-4">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Home</a>
+                    <a class="nav-link" aria-current="page" href="/blogs">Add Post</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Education']) }}">Education</a>
+                    <a class="nav-link" href="{{ route('categories') }}">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Entertainment']) }}">Entertainment</a>
+                    <a class="nav-link" href="{{ route('statuses') }}">Statuses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Technology']) }}">Technology</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Sports']) }}">Sports</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Politics']) }}">Politics</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Health']) }}">Health</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Travel']) }}">Travel</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Food']) }}">Food</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Lifestyle']) }}">Lifestyle</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('post', ['name' => 'Business']) }}">Business</a>
+                    <a class="nav-link" href="{{ route('posts') }}">All Posts</a>
                 </li>
             </ul>
         </div>

@@ -17,7 +17,7 @@ class BlogController extends Controller
     {
         $user = "test";
 
-        return view('pages.content', compact('user'));
+        return 'tina';
     }
 
     // Function to create blog post
@@ -28,83 +28,87 @@ class BlogController extends Controller
         $post->image_url = $request->input('image_url');
         $post->description = $request->input('description');
         $post->category_id = $request->input('category_id');
-        $post->content = $request->input('content');
         $post->author = $request->input('author');
         $post->status_id = $request->input('status_id');
         $post->save();
 
-        return redirect()->route('home');
-    }
-
-    // Get content of specific blog post
-    public function getContent($id)
-    {
-        $posts = DB::table('blogs as b')
-            ->join('categories as c', 'c.id', '=', 'b.category_id')
-            ->select('b.*', 'c.name as name')
-            ->where('b.id', $id)
-            ->first();
-
-        return view('pages.content', compact('posts'));
-    }
-
-    //Get 2 recent posts, all blog posts, and all categories
-    public function getPost()
-    {
-        $recent = DB::table('blogs')->orderBy('created_at', 'desc')->take(2)->get();
-        $categories = DB::table('categories')->get();
-        $statuses = DB::table('statuses')->get();
-        $posts = DB::table('blogs as b')
-            ->join('categories as c', 'c.id', '=', 'b.category_id')
-            ->select('b.*', 'c.name as name')
-            ->get();
-
-        return view('pages.home', compact('categories', 'posts', 'recent', 'statuses'));
-    }
-
-    // Get post by category
-    public function getPostsByCategory($name)
-    {
-        $category = DB::table('categories')->where('name', $name)->first();
-
-        $posts = DB::table('blogs as b')
-            ->join('categories as c', 'c.id', '=', 'b.category_id')
-            ->where('b.category_id', $category->id)
-            ->select('b.*', 'c.name as name')
-            ->get();
-
-        return view('pages.categories', compact('category', 'posts'));
+        return redirect()->route('newPost');
     }
 
     public function blogModel()
     {
         $this->softDelete(11);
     }
-    
-    public function softDelete($id) {
+
+    public function softDelete($id) {}
+
+    // Home
+    public function home()
+    {
+        $categories = DB::table('categories')->get();
+        $statuses = DB::table('statuses')->get();
+        return view('pages.newPost', compact('categories', 'statuses'));
     }
 
-    // List of statuses
-    public function getStatus() {
-        $statuses = Status::all();
-        return view('pages.status', compact('statuses'));
-    }
-
-    // List of blog statuses
-    public function getCategory() {
+    // List of blog categories
+    public function getCategory()
+    {
         $categories = Category::all();
         return view('pages.category', compact('categories'));
     }
 
-    // Soft delete a blog post
-    public function softDeleteBlog($id) {
-        Blog::find($id)->delete();
-        return redirect()->back()->with('success', 'Post deleted!');
+    // List of statuses
+    public function getStatus()
+    {
+        $statuses = Status::all();
+        return view('pages.status', compact('statuses'));
     }
 
-    // Get all posts
-    public function getAllPosts() {
-        $posts = Blog::all();
-        return view('pages.posts', compact('posts'));
+    // Soft delete a blog post
+    public function softDeleteBlog($id)
+    {
+        Blog::find($id)->delete();
+        return redirect()->back();
+    }
+
+    // Get all posts (excluding soft-deleted)
+    public function getAllPosts()
+    {
+        $viewType = 'all';
+        $posts = DB::table('blogs as b')
+            ->join('categories as c', 'c.id', '=', 'b.category_id')
+            ->join('statuses as s', 's.id', '=', 'b.status_id')
+            ->select('b.*', 'c.name as category_name', 's.name as status_name')
+            ->whereNull('b.deleted_at')
+            ->get();
+        return view('pages.content', compact('posts', 'viewType'));
+    }
+
+    // Get posts by status (excluding soft-deleted)
+    public function getPostByStatus($id)
+    {
+        $viewType = 'byStatus';
+        $posts = DB::table('blogs as b')
+            ->join('categories as c', 'c.id', '=', 'b.category_id')
+            ->join('statuses as s', 's.id', '=', 'b.status_id')
+            ->select('b.*', 'c.name as category_name', 's.name as status_name')
+            ->where('s.id', $id)
+            ->whereNull('b.deleted_at')
+            ->get();
+        return view('pages.content', compact('posts', 'viewType'));
+    }
+
+    // Get posts by category (excluding soft-deleted)
+    public function getPostByCategory($id)
+    {
+        $viewType = 'byCategory';
+        $posts = DB::table('blogs as b')
+            ->join('categories as c', 'c.id', '=', 'b.category_id')
+            ->join('statuses as s', 's.id', '=', 'b.status_id')
+            ->select('b.*', 'c.name as category_name', 's.name as status_name')
+            ->where('s.id', $id)
+            ->whereNull('b.deleted_at')
+            ->get();
+        return view('pages.content', compact('posts', 'viewType'));
     }
 }

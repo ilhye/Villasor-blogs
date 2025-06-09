@@ -28,7 +28,7 @@
 #addPostLabel,
 .brand,
 .footer-copyright,
-.category, .status-title, .category-title {
+.category, .status-title, .category-title, .title {
     font-family: var(--title-font);
     font-style: italic;
 }
@@ -69,6 +69,10 @@ option,
 .post-description,
 .post-content {
     font-family: var(--text-font);
+}
+
+.badge {
+    background-color: var(--primary-color);
 }
 
 .add-btn {

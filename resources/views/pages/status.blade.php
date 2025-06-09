@@ -2,11 +2,14 @@
 
 @section('content')
 <div class="row">
-    <p class="h1 status-title mt-4 mb-4">Statuses</p>
-    <ul class="mb-4">
+    <p class="h1 status-title mt-4 mb-4">List of Statuses</p>
+    <ul>
         @foreach ($statuses as $status)
-            <li>{{ $status->name }}</li>
+        <li class="mb-3 ms-3">
+            <a href="{{ route('byStatus', ['id' => $status->id]) }}" class="mb-3 text-decoration-none text-dark">{{ $status->name }}</a>
+        </li>
         @endforeach
     </ul>
+
 </div>
 @endsection
