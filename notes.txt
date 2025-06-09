@@ -21,8 +21,4 @@ COMMAND LISTS
 
 
 TO FIX:
-- navigation (add list of categories and status)
-- a tag for linking specific data
 - class name
-- route (start with /blog)
-- update ui
