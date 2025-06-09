@@ -25,10 +25,10 @@
             <label for="post-title" class="form-label">Post Title</label>
             <input type="text" class="form-control" id="post-title" name="title" placeholder="Enter post title">
         </div>
-
         <div class="mb-3">
             <label for="post-category" class="form-label">Post Category</label>
             <select name="category_id" id="post-category" class="form-select">
+                <option value="" disabled selected>Choose category</option>
                 @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
@@ -37,6 +37,7 @@
         <div class="mb-3">
             <label for="post-status" class="form-label">Status</label>
             <select name="status_id" id="post-status" class="form-select">
+                <option value="" disabled selected>Choose Status</option>
                 @foreach ($statuses as $status)
                 <option value="{{ $status->id }}">{{ $status->name }}</option>
                 @endforeach
