@@ -21,12 +21,12 @@
     background-color: var(--primary-color);
 }
 
-.btn-save {
+.btn-save, .btn-new {
     background-color: var(--primary-color);
     color: white;
 }
 
-.btn-save:hover {
+.btn-save:hover, .btn-new:hover {
     background-color: var(--hover);
 }
 
