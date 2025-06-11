@@ -18,6 +18,8 @@ COMMAND LISTS
 - php artisan make:model Category 
 - php artisan make:model Status
 - php artisan make:request BlogRequest
+** ACTIVITY 3 **
+- php artisan make:model Tags
 - npm run dev
 - php artisan
 
