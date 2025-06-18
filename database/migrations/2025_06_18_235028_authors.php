@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('authors', function(Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->dateTime('created_at')->nullable();
+            $table->dateTime('created_at')->useCurrent();
+            $table->softDeletes();
         });
     }
 

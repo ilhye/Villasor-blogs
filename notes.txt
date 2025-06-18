@@ -21,7 +21,6 @@ COMMAND LISTS
 ** ACTIVITY 4 **
 - php artisan make:model Tags
 - php artisan make:migration authors
-- php artisan migrate --path=\database\migrations\2025_06_18_235028_authors.php
 
 - npm run dev
 - php artisan

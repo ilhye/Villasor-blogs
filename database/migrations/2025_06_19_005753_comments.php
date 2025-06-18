@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blogs', function(Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('description');
-            $table->string('image_url');
-            $table->integer('category_id');
-            $table->integer('author_id');
+            $table->foreignId('blog_id');
+            $table->foreignId('author_id');
+            $table->string('comment');
             $table->dateTime('created_at')->useCurrent();
-            $table->integer('status_id');
-            $table->softDeletes();
         });
     }
 
