@@ -18,8 +18,11 @@ COMMAND LISTS
 - php artisan make:model Category 
 - php artisan make:model Status
 - php artisan make:request BlogRequest
-** ACTIVITY 3 **
+** ACTIVITY 4 **
 - php artisan make:model Tags
+- php artisan make:migration authors
+- php artisan migrate --path=\database\migrations\2025_06_18_235028_authors.php
+
 - npm run dev
 - php artisan
 
@@ -27,7 +30,6 @@ TO FIX:
 - 
 
 TO ADD:
-- add authors table
 - blogs table should have author_id, link to users table.
 - blog can have a comments
 - users can heart/like the comment.
