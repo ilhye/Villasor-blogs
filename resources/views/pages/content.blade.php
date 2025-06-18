@@ -2,17 +2,93 @@
 
 @section('content')
 <!-- Display blog posts -->
-<div class="col-md-9 col-sm-12">
-    @if($viewType === 'all') 
-        <p class="h2 title pb-2 mt-5 mb-2">All Posts</p>
+<div class="w-50 mx-auto">
+    @if($viewType === 'all')
+    <p class="h2 title pb-2 mt-5 mb-2">All Blog Post</p>
     @elseif($viewType === 'byStatus')
-        <p class="h2 title pb-2 mt-5 mb-2">Status Content</p>
+    <p class="h2 title pb-2 mt-5 mb-2">Status Content</p>
     @elseif($viewType === 'byCategory')
-        <p class="h2 title pb-2 mt-5 mb-2">Category Content</p>
+    <p class="h2 title pb-2 mt-5 mb-2">Category Content</p>
     @endif
 
     @foreach ($posts as $post)
-    <div class="card border-1 mb-3">
+    <div class="card m-auto p-3 mb-4">
+        <!-- Profile -->
+        <div class="d-flex align-items-start mt-3">
+            <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
+                alt="profile_pic"
+                class="rounded-circle me-2"
+                style="width: 40px; height: 40px; object-fit: cover;">
+
+            <!-- Username and time -->
+            <div class="w-100">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="d-flex align-items-center gap-2">
+                        <p id="username" class="mb-0 fw-semibold">John Doe</p>
+                    </div>
+                    <!-- Show deletion option -->
+                    <i class="bi bi-three-dots"></i>
+                </div>
+                <small class="text-muted">3h</small>
+            </div>
+        </div>
+
+        <!-- Blog Content -->
+        <div class="card-body">
+            <p class="blog-description mb-2">Lorem Ipsum</p>
+            <img src="https://i.pinimg.com/736x/5c/9a/46/5c9a462f8bbaf1ec54957229934e1244.jpg"
+                alt="post"
+                class="img-fluid rounded w-100">
+            <hr>
+            <ul class="list-unstyled d-flex text-center w-100 p-0 m-0">
+                <li class="flex-fill">
+                    <i class="bi bi-heart-fill text-danger me-1"></i>Like
+                </li>
+                <li class="flex-fill">
+                    <i class="bi bi-chat-fill me-1"></i>Comment
+                </li>
+            </ul>
+            <hr>
+            <!-- Comments section -->
+            <div class="d-flex align-items-start mt-3">
+                <!-- Profile picture -->
+                <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
+                    alt="profile_pic"
+                    class="rounded-circle me-2"
+                    style="width: 40px; height: 40px; object-fit: cover;">
+
+                <!-- Comment content -->
+                <div class="w-100">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <p id="username" class="mb-1 fw-semibold">John Doe</p>
+                        <small class="text-muted">3h</small>
+                    </div>
+                    <p class="mb-0">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+            <hr>
+            <div class="d-flex align-items-start mt-3">
+                <!-- Profile picture -->
+                <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
+                    alt="profile_pic"
+                    class="rounded-circle me-2"
+                    style="width: 40px; height: 40px; object-fit: cover;">
+
+                <!-- Comment content -->
+                <div class="w-100">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <p id="username" class="mb-1 fw-semibold">John Doe</p>
+                        <small class="text-muted">3h</small>
+                    </div>
+                    <p class="mb-0">Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Section: Newsfeed-->
+    <!-- <div class=" card border-1 mb-3">
         <div class="row">
             <div class="col-6 col-md-3">
                 <img src="{{ $post->image_url }}" alt="post-image" class="img-fluid rounded w-100 more-image">
@@ -32,7 +108,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     @endforeach
 </div>
 @endsection

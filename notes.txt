@@ -28,3 +28,6 @@ TO FIX:
 
 TO ADD:
 - add authors table
+- blogs table should have author_id, link to users table.
+- blog can have a comments
+- users can heart/like the comment.
