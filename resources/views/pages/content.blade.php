@@ -40,17 +40,31 @@
                 alt="post"
                 class="img-fluid rounded w-100 border">
             <hr>
-            <ul class="list-unstyled d-flex text-center w-100 p-0 m-0">
-                <li class="flex-fill">
+            <ul class="list-unstyled d-flex text-center w-100 p-0 m-0 interaction">
+                <li class="flex-fill" onclick="changeColor()">
                     <i class="bi bi-heart-fill text-danger me-1"></i>Like
                 </li>
                 <li class="flex-fill">
-                    <i class="bi bi-chat-fill me-1"></i>Comment
+                    <a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#addComment" role="button" aria-expanded="false" aria-controls="addComment">
+                        <i class="bi bi-chat-fill text-primary me-1"></i>Comment
+                    </a>
                 </li>
             </ul>
             <hr>
+
+            <!-- Add comment -->
+            <div class="collapse w-100" id="addComment">
+                <form action="">
+                    <textarea class="form-control" placeholder="Leave a comment here" rows="3"></textarea>
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-primary mt-3">Submit</button>
+                    </div>
+                </form>
+
+            </div>
             <!-- Comments section -->
             <div class="d-flex align-items-start mt-3">
+
                 <!-- Profile picture -->
                 <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
                     alt="profile_pic"
