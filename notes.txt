@@ -21,6 +21,7 @@ COMMAND LISTS
 ** ACTIVITY 4 **
 - php artisan make:model Tags
 - php artisan make:migration authors
+- php artisan make:model Author
 
 - npm run dev
 - php artisan
@@ -29,6 +30,11 @@ TO FIX:
 - 
 
 TO ADD:
-- blogs table should have author_id, link to users table.
 - blog can have a comments
 - users can heart/like the comment.
+
+CURRENT STATE:
+- associate author and blogs table
+
+REFERENCES:
+- https://stackoverflow.com/questions/35533597/laravel-one-to-many-inserting

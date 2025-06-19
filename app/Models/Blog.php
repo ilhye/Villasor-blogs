@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Blog extends Model
 {
     use SoftDeletes;
+    public $timestamps = false;
 
     public function category()
     {
@@ -22,5 +23,10 @@ class Blog extends Model
     public function tags()
     {
         return $this->belongsToMany(Tags::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
