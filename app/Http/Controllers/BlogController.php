@@ -75,12 +75,7 @@ class BlogController extends Controller
     public function getAllPosts()
     {
         $viewType = 'all';
-        $posts = DB::table('blogs as b')
-            ->join('categories as c', 'c.id', '=', 'b.category_id')
-            ->join('statuses as s', 's.id', '=', 'b.status_id')
-            ->select('b.*', 'c.name as category_name', 's.name as status_name')
-            ->whereNull('b.deleted_at')
-            ->get();
+        $posts = Blog::with('category', 'status', 'user')->get();
         return view('pages.content', compact('posts', 'viewType'));
     }
 
@@ -88,13 +83,7 @@ class BlogController extends Controller
     public function getPostByStatus($id)
     {
         $viewType = 'byStatus';
-        $posts = DB::table('blogs as b')
-            ->join('categories as c', 'c.id', '=', 'b.category_id')
-            ->join('statuses as s', 's.id', '=', 'b.status_id')
-            ->select('b.*', 'c.name as category_name', 's.name as status_name')
-            ->where('s.id', $id)
-            ->whereNull('b.deleted_at')
-            ->get();
+        $posts = Blog::with('category', 'status', 'user')->where('status_id', $id)->get();
         return view('pages.content', compact('posts', 'viewType'));
     }
 
@@ -102,20 +91,13 @@ class BlogController extends Controller
     public function getPostByCategory($id)
     {
         $viewType = 'byCategory';
-        $posts = DB::table('blogs as b')
-            ->join('categories as c', 'c.id', '=', 'b.category_id')
-            ->join('statuses as s', 's.id', '=', 'b.status_id')
-            ->select('b.*', 'c.name as category_name', 's.name as status_name')
-            ->where('s.id', $id)
-            ->whereNull('b.deleted_at')
-            ->get();
+        $posts = Blog::with('category', 'status', 'user')->where('category_id', $id)->get();
         return view('pages.content', compact('posts', 'viewType'));
     }
 
     public function oneToOneRel()
     {
         $blogs = Blog::with('category', 'status')->get();
-
         return $blogs;
     }
 

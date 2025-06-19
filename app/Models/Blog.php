@@ -20,13 +20,18 @@ class Blog extends Model
         return $this->hasOne(Category::class, 'id', 'status_id');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'author_id', 'id');
+    }
+
     public function tags()
     {
         return $this->belongsToMany(Tags::class);
     }
 
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
 }

@@ -24,21 +24,21 @@
             <div class="w-100">
                 <div class="d-flex justify-content-between align-items-start">
                     <div class="d-flex align-items-center gap-2">
-                        <p id="username" class="mb-0 fw-semibold">John Doe</p>
+                        <p id="username" class="mb-0 fw-semibold">{{ $post->user->name }}</p>
                     </div>
                     <!-- Show deletion option -->
                     <i class="bi bi-three-dots"></i>
                 </div>
-                <small class="text-muted">3h</small>
+                <small class="text-muted">{{ $post->created_at }}</small>
             </div>
         </div>
 
         <!-- Blog Content -->
         <div class="card-body">
-            <p class="blog-description mb-2">Lorem Ipsum</p>
-            <img src="https://i.pinimg.com/736x/5c/9a/46/5c9a462f8bbaf1ec54957229934e1244.jpg"
+            <p class="blog-description mb-2">{{ $post->description }}</p>
+            <img src="{{ $post->image_url }}"
                 alt="post"
-                class="img-fluid rounded w-100">
+                class="img-fluid rounded w-100 border">
             <hr>
             <ul class="list-unstyled d-flex text-center w-100 p-0 m-0">
                 <li class="flex-fill">
