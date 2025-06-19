@@ -32,6 +32,7 @@ TO FIX:
 TO ADD:
 - blog can have a comments
 - users can heart/like the comment.
+- display 
 
 CURRENT STATE:
 - associate author and blogs table
