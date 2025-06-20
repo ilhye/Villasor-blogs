@@ -23,7 +23,7 @@
 
 
     @foreach ($posts as $post)
-    <div class="card m-auto p-3 mb-4">
+    <div class="card p-3 mb-4">
         <!-- Profile -->
         <div class="d-flex align-items-start mt-3">
             <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
@@ -34,13 +34,17 @@
             <!-- Username and time -->
             <div class="w-100">
                 <div class="d-flex justify-content-between align-items-start">
-                    <div class="d-flex align-items-center gap-2">
+                    <div>
                         <p id="username" class="mb-0 fw-semibold">{{ $post->user->name }}</p>
+                        <small class="text-muted">{{ $post->created_at }}</small>
                     </div>
-                    <!-- Show deletion option -->
-                    <i class="bi bi-three-dots"></i>
+                    <form method="POST" action="{{ route('blog.delete', $post->id) }}">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger position-absolute top-0 end-0 m-3 w-25">Delete Post</button>
+                    </form>
                 </div>
-                <small class="text-muted">{{ $post->created_at }}</small>
+
             </div>
         </div>
 

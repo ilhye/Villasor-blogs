@@ -1,7 +1,7 @@
 @extends('layout.main')
 
 @section('content')
-<div class="row">
+<div class="row m-auto w-50">
     <p class="h1 title mt-4 mb-4">List of Statuses</p>
     <ul>
         @foreach ($statuses as $status)
