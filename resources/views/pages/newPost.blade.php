@@ -19,7 +19,7 @@
     @endif
 
     <!-- Add new blog post -->
-    <form method="POST" action="{{ route('pages.submit') }}">
+    <form method="POST" action="{{ route('submit.post') }}">
         @csrf
         <div class="mb-3">
             <label for="post-title" class="form-label">Post Title</label>

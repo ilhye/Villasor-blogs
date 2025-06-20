@@ -11,6 +11,17 @@
     <p class="h2 title pb-2 mt-5 mb-2">Category Content</p>
     @endif
 
+    @if ($errors->any())
+    <div class="alert alert-danger mt-2">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+
     @foreach ($posts as $post)
     <div class="card m-auto p-3 mb-4">
         <!-- Profile -->
@@ -45,7 +56,7 @@
                     <i class="bi bi-heart-fill text-danger me-1"></i>Like
                 </li>
                 <li class="flex-fill">
-                    <a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#addComment" role="button" aria-expanded="false" aria-controls="addComment">
+                    <a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#addComment{{ $post->id }}" role="button" aria-expanded="false" aria-controls="addComment{{ $post->id }}">
                         <i class="bi bi-chat-fill text-primary me-1"></i>Comment
                     </a>
                 </li>
@@ -53,11 +64,12 @@
             <hr>
 
             <!-- Add comment -->
-            <div class="collapse w-100" id="addComment">
-                <form action="">
-                    <textarea class="form-control" placeholder="Leave a comment here" rows="3"></textarea>
+            <div class="collapse w-100" id="addComment{{ $post->id }}">
+                <form method="POST" action="{{ route('submit.comment', ['id' => $post->id]) }}">
+                    @csrf
+                    <textarea class="form-control" placeholder="Leave a comment here" rows="3" name="comment"></textarea>
                     <div class="d-flex justify-content-end">
-                        <button class="btn btn-primary mt-3">Submit</button>
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </div>
                 </form>
 

@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BlogRequest;
+use App\Http\Requests\CommentRequest;
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class BlogController extends Controller
 {
@@ -39,7 +42,7 @@ class BlogController extends Controller
 
         $post->save();
         
-        return redirect()->route('newPost')->with('success', 'Post created successfully!');;
+        return redirect()->back();
     }
 
     // Home
@@ -93,6 +96,18 @@ class BlogController extends Controller
         $viewType = 'byCategory';
         $posts = Blog::with('category', 'status', 'user')->where('category_id', $id)->get();
         return view('pages.content', compact('posts', 'viewType'));
+    }
+
+    public function addComment(CommentRequest $request, $id) {
+        
+        $comment = new Comment();
+        $comment->blog_id = $id;
+        $comment->comment = $request->input('comment');
+
+        $comment->save();
+        Log::info('Commented successfully');
+
+        return redirect()->back();
     }
 
     public function oneToOneRel()

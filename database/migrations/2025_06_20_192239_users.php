@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('comments', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('blog_id');
-            $table->string('comment');
-            $table->dateTime('created_at')->useCurrent();
+            $table->foreignId('name');
         });
     }
 
