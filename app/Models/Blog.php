@@ -30,8 +30,7 @@ class Blog extends Model
         return $this->belongsToMany(Tags::class);
     }
 
-    // public function user()
-    // {
-    //     return $this->belongsTo(User::class);
-    // }
+    public function comments () {
+        return $this->hasMany(Comment::class, 'blog_id', 'id');
+    }
 }

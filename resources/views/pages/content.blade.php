@@ -61,7 +61,6 @@
                     </a>
                 </li>
             </ul>
-            <hr>
 
             <!-- Add comment -->
             <div class="collapse w-100" id="addComment{{ $post->id }}">
@@ -72,43 +71,28 @@
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </div>
                 </form>
-
             </div>
+
             <!-- Comments section -->
-            <div class="d-flex align-items-start mt-3">
+            @foreach ($post->comments as $comment)
+                <div class="d-flex align-items-start mt-3 border-top border-1 pt-3">
 
-                <!-- Profile picture -->
-                <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
-                    alt="profile_pic"
-                    class="rounded-circle me-2"
-                    style="width: 40px; height: 40px; object-fit: cover;">
+                    <!-- Profile picture -->
+                    <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
+                        alt="profile_pic"
+                        class="rounded-circle me-2"
+                        style="width: 40px; height: 40px; object-fit: cover;">
 
-                <!-- Comment content -->
-                <div class="w-100">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <p id="username" class="mb-1 fw-semibold">John Doe</p>
-                        <small class="text-muted">3h</small>
+                    <!-- Comment content -->
+                    <div class="w-100">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <p id="username" class="mb-1 fw-semibold">User {{ $post->user->id }}</p>
+                            <small class="text-muted">{{ $comment->created_at }}</small>
+                        </div>
+                        <p class="mb-0">{{ $comment->comment }}</p>
                     </div>
-                    <p class="mb-0">Lorem ipsum dolor sit amet.</p>
                 </div>
-            </div>
-            <hr>
-            <div class="d-flex align-items-start mt-3">
-                <!-- Profile picture -->
-                <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
-                    alt="profile_pic"
-                    class="rounded-circle me-2"
-                    style="width: 40px; height: 40px; object-fit: cover;">
-
-                <!-- Comment content -->
-                <div class="w-100">
-                    <div class="d-flex justify-content-between align-items-start">
-                        <p id="username" class="mb-1 fw-semibold">John Doe</p>
-                        <small class="text-muted">3h</small>
-                    </div>
-                    <p class="mb-0">Lorem ipsum dolor sit amet.</p>
-                </div>
-            </div>
+            @endforeach
 
         </div>
     </div>

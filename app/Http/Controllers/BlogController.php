@@ -78,7 +78,7 @@ class BlogController extends Controller
     public function getAllPosts()
     {
         $viewType = 'all';
-        $posts = Blog::with('category', 'status', 'user')->get();
+        $posts = Blog::with('category', 'status', 'user', 'comments')->get();
         return view('pages.content', compact('posts', 'viewType'));
     }
 
@@ -112,7 +112,7 @@ class BlogController extends Controller
 
     public function oneToOneRel()
     {
-        $blogs = Blog::with('category', 'status')->get();
+        $blogs = Blog::with('category', 'status', 'user', 'comment')->get();
         return $blogs;
     }
 
