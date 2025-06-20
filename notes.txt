@@ -30,7 +30,6 @@ TO FIX:
 - 
 
 TO ADD:
-- add tags and allow user to add tags
 - fix ui (include categories, status, and tags)
 
 CURRENT STATE:
