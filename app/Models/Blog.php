@@ -9,6 +9,7 @@ class Blog extends Model
 {
     use SoftDeletes;
     public $timestamps = false;
+    protected $fillable = ['title', 'description'];
 
     public function category()
     {
@@ -27,7 +28,7 @@ class Blog extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tags::class);
+        return $this->belongsToMany(Tag::class);
     }
 
     public function comments () {

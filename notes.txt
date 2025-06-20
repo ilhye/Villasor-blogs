@@ -30,8 +30,6 @@ TO FIX:
 - 
 
 TO ADD:
-- users can heart/like the comment.
-- store likes and comments
 - add tags and allow user to add tags
 - fix ui (include categories, status, and tags)
 

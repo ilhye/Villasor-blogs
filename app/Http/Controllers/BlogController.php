@@ -26,24 +26,24 @@ class BlogController extends Controller
     // Create blog post
     public function createBlog(BlogRequest $request)
     {
-        // Save blog post in blogs table
         $post = new Blog();
         $post->title = $request->input('title');
         $post->image_url = $request->input('image_url');
         $post->description = $request->input('description');
         $post->category_id = $request->input('category_id');
 
-        // Save author in users table
         $user = new User();
-        $user = User::firstOrCreate(['name' => $request->input('author')]); 
+        $user = User::firstOrCreate(['name' => $request->input('author')]);
 
-        // Save user's table id in authors_id in blogs table
         $post->author_id = $user->id;
-        $post->status_id = $request->input('status_id');
-
-        $post->save();
+        $post->status_id = $request->input('status_id'); 
         
-        return redirect()->back();
+        $post->save();
+
+        $tags = $request->input('tags', []);
+        $post->tags()->attach($tags);
+
+        return redirect()->back()->with('success', 'Post created successfully!');
     }
 
     // Home
@@ -51,7 +51,8 @@ class BlogController extends Controller
     {
         $categories = DB::table('categories')->get();
         $statuses = DB::table('statuses')->get();
-        return view('pages.newPost', compact('categories', 'statuses'));
+        $tags = DB::table('tags')->get();
+        return view('pages.newPost', compact('categories', 'statuses', 'tags'));
     }
 
     // List of blog categories
@@ -99,8 +100,10 @@ class BlogController extends Controller
         return view('pages.content', compact('posts', 'viewType'));
     }
 
-    public function addComment(CommentRequest $request, $id) {
-        
+    // Add comment on specific post
+    public function addComment(CommentRequest $request, $id)
+    {
+
         $comment = new Comment();
         $comment->blog_id = $id;
         $comment->comment = $request->input('comment');
@@ -111,7 +114,9 @@ class BlogController extends Controller
         return back();
     }
 
-    public function likeBlog($id) {
+    // Add a like sa blog post
+    public function likeBlog($id)
+    {
         $like_default = 0;
 
         $like = Like::firstOrCreate(

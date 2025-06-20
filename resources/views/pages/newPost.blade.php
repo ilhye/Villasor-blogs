@@ -6,16 +6,16 @@
 
     <!-- Inputs stored successfully -->
     @if(session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
     @endif
 
     <!-- Inputs not stored successfully -->
     @if($errors -> any())
-        @foreach($errors -> all() as $error)
-        <div class="alert alert-danger"> {{ $error }} </div>
-        @endforeach
+    @foreach($errors -> all() as $error)
+    <div class="alert alert-danger"> {{ $error }} </div>
+    @endforeach
     @endif
 
     <!-- Add new blog post -->
@@ -42,6 +42,17 @@
                 <option value="{{ $status->id }}">{{ $status->name }}</option>
                 @endforeach
             </select>
+        </div>
+        <div class="mb-3">
+            <p class="mb-0">Tags</p>
+            @foreach ($tags as $tag)
+            <div class="form-check ms-2">
+                <input class="form-check-input" name="tags[]" type="checkbox" value="{{ $tag->id }}" id="tags{{ $tag->id }}">
+                <label class="form-check-label" for="tags{{ $tag->id }}">
+                    {{ $tag->name }}
+                </label>
+            </div>
+            @endforeach
         </div>
         <div class="mb-3">
             <label for="post-image" class="form-label">Post Image URL</label>
