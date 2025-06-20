@@ -15,6 +15,8 @@ Route::group(['prefix' => 'blogs'], function () {
     Route::get('/posts', [BlogController::class, 'getAllPosts'])->name('posts');
     Route::delete('/{id}', [BlogController::class, 'softDeleteBlog'])->name('blog.delete');
     Route::post('/new_comment/{id}', [BlogController::class, 'addComment'])->name('submit.comment');
+    Route::post( '/like/{id}', [BlogController::class, 'likeBlog'])->name('submit.like');
+
     Route::get('/hasOne', [BlogController::class, 'oneToOneRel']);
     Route::get('/hasMany', [BlogController::class, 'oneToManyRel']);
     Route::get('/belongsToMany', [BlogController::class, 'manyToManyRel']);

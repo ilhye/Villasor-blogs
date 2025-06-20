@@ -33,4 +33,8 @@ class Blog extends Model
     public function comments () {
         return $this->hasMany(Comment::class, 'blog_id', 'id');
     }
+
+    public function like () {
+        return $this->hasOne(Like::class, 'blog_id', 'id');
+    }
 }

@@ -52,8 +52,13 @@
                 class="img-fluid rounded w-100 border">
             <hr>
             <ul class="list-unstyled d-flex text-center w-100 p-0 m-0 interaction">
-                <li class="flex-fill" onclick="changeColor()">
-                    <i class="bi bi-heart-fill text-danger me-1"></i>Like
+                <li class="flex-fill">
+                    <form method="POST" action="{{ route('submit.like', ['id' => $post->id]) }}">
+                        @csrf
+                        <button class="p-0 border-0 bg-transparent" type="submit">
+                            <i class="bi bi-heart-fill text-danger me-1"></i>{{ $post->like->likes ?? 0 }} Likes
+                        </button>
+                    </form>
                 </li>
                 <li class="flex-fill">
                     <a class="text-decoration-none text-dark" data-bs-toggle="collapse" href="#addComment{{ $post->id }}" role="button" aria-expanded="false" aria-controls="addComment{{ $post->id }}">
@@ -75,23 +80,23 @@
 
             <!-- Comments section -->
             @foreach ($post->comments as $comment)
-                <div class="d-flex align-items-start mt-3 border-top border-1 pt-3">
+            <div class="d-flex align-items-start mt-3 border-top border-1 pt-3">
 
-                    <!-- Profile picture -->
-                    <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
-                        alt="profile_pic"
-                        class="rounded-circle me-2"
-                        style="width: 40px; height: 40px; object-fit: cover;">
+                <!-- Profile picture -->
+                <img src="https://i.pinimg.com/736x/06/c5/34/06c53402078b109af7bb0e1b2d8bfcba.jpg"
+                    alt="profile_pic"
+                    class="rounded-circle me-2"
+                    style="width: 40px; height: 40px; object-fit: cover;">
 
-                    <!-- Comment content -->
-                    <div class="w-100">
-                        <div class="d-flex justify-content-between align-items-start">
-                            <p id="username" class="mb-1 fw-semibold">User {{ $post->user->id }}</p>
-                            <small class="text-muted">{{ $comment->created_at }}</small>
-                        </div>
-                        <p class="mb-0">{{ $comment->comment }}</p>
+                <!-- Comment content -->
+                <div class="w-100">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <p id="username" class="mb-1 fw-semibold">User {{ $post->user->id }}</p>
+                        <small class="text-muted">{{ $comment->created_at }}</small>
                     </div>
+                    <p class="mb-0">{{ $comment->comment }}</p>
                 </div>
+            </div>
             @endforeach
 
         </div>

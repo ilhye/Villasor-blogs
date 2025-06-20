@@ -7,6 +7,7 @@ use App\Http\Requests\CommentRequest;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Like;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -78,7 +79,7 @@ class BlogController extends Controller
     public function getAllPosts()
     {
         $viewType = 'all';
-        $posts = Blog::with('category', 'status', 'user', 'comments')->get();
+        $posts = Blog::with('category', 'status', 'user', 'comments', 'like')->get();
         return view('pages.content', compact('posts', 'viewType'));
     }
 
@@ -107,6 +108,20 @@ class BlogController extends Controller
         $comment->save();
         Log::info('Commented successfully');
 
+        return back();
+    }
+
+    public function likeBlog($id) {
+        $like_default = 0;
+
+        $like = Like::firstOrCreate(
+            ['blog_id' => $id],
+            ['likes' => $like_default]
+        );
+        $like->increment('likes');
+
+        Log::info('Liked successfully');
+        # $like->save();
         return redirect()->back();
     }
 

@@ -14,4 +14,5 @@ class User extends Model
     {
         return $this->hasMany(Blog::class, 'author_id', 'id');
     }
+    
 }
