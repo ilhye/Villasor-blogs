@@ -33,8 +33,7 @@ class BlogController extends Controller
             'category_id' => $request->category_id,
             'author_id' => User::firstOrCreate(['name' => $request->author])->id,
             'status_id' => $request->status_id
-        ]);
-        $post->tags()->attach($request->input('tags', []));
+        ])->tags()->attach($request->input('tags', []));
 
         return redirect()->back()->with('success', 'Post created successfully!');
     }
