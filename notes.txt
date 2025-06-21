@@ -30,10 +30,10 @@ TO FIX:
 - 
 
 TO ADD:
-- fix ui (include categories, status, and tags)
+- done
 
 CURRENT STATE:
-- with comments, likes, and can store tags
+- done
 
 REFERENCES:
 - https://stackoverflow.com/questions/35533597/laravel-one-to-many-inserting

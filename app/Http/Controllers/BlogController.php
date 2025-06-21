@@ -9,6 +9,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Like;
 use App\Models\Status;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -26,7 +27,7 @@ class BlogController extends Controller
     // Create blog post
     public function createBlog(BlogRequest $request)
     {
-        $post = Blog::create([
+        Blog::create([
             'title' => $request->title,
             'image_url' => $request->image_url,
             'description' => $request->description,
@@ -38,12 +39,12 @@ class BlogController extends Controller
         return redirect()->back()->with('success', 'Post created successfully!');
     }
 
-    // Home
+    //Home
     public function home()
     {
-        $categories = DB::table('categories')->get();
-        $statuses = DB::table('statuses')->get();
-        $tags = DB::table('tags')->get();
+        $categories = Category::all();
+        $statuses = Status::all();
+        $tags = Tag::all();
         return view('pages.newPost', compact('categories', 'statuses', 'tags'));
     }
 
@@ -120,7 +121,7 @@ class BlogController extends Controller
 
     public function oneToOneRel()
     {
-        $blogs = Blog::with('category', 'status', 'user', 'comment')->get();
+        $blogs = Blog::with('category', 'status')->get();
         return $blogs;
     }
 

@@ -21,13 +21,14 @@
     background-color: var(--primary-color);
 }
 
-.btn-save, .btn-new {
+.btn-save {
     background-color: var(--primary-color);
     color: white;
 }
 
-.btn-save:hover, .btn-new:hover {
+.btn-save:hover {
     background-color: var(--hover);
+    color: white;
 }
 
 .navbar,
@@ -48,4 +49,12 @@ footer {
 
 .interaction {
     cursor: pointer;
+}
+
+.blog-tags {
+    color: var(--primary-color)
+}
+
+.categories, .statuses {
+    border-bottom: 2px solid var(--layout-color);
 }

@@ -50,10 +50,20 @@
 
         <!-- Blog Content -->
         <div class="card-body">
-            <p class="blog-description mb-2">{{ $post->description }}</p>
+            <p class="blog-status mb-2 small"><span class="fw-bold">Status:</span> {{ $post->status->name }}</p>
+            <p class="blog-category mb-2 small"><span class="fw-bold">Category:</span> {{ $post->category->name }}</p>
+            <p class="blog-description mb-2"><span class="fw-bold">Description: </span>{{ $post->description }}</p>
+            <div class="d-flex">
+                @foreach ($post->tags as $tag)
+                <p class="blog-tags">#{{$tag->name}}</p>
+                @endforeach
+            </div>
+
+            @if ($post->image_url == !null)
             <img src="{{ $post->image_url }}"
                 alt="post"
                 class="img-fluid rounded w-100 border">
+            @endif
             <hr>
             <ul class="list-unstyled d-flex text-center w-100 p-0 m-0 interaction">
                 <li class="flex-fill">

@@ -23,7 +23,6 @@ class BlogRequest extends FormRequest
     {
         return [
             'title' => 'required|max:255',
-            'image_url' => 'required|url',
             'description' => 'required',
             'category_id' => 'required',
             'author' => 'required',
@@ -35,7 +34,6 @@ class BlogRequest extends FormRequest
         return[
             'title.required' => 'The title is required.',
             'title.max' => 'The title may not be greater than 255 characters.',
-            'image_url.required' => 'The image URL is required.',
             'image_url.url' => 'The image URL must be a valid URL.',
             'description.required' => 'The description is required.',
             'category_id.required' => 'The category ID is required.',

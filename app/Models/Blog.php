@@ -18,7 +18,7 @@ class Blog extends Model
 
     public function status()
     {
-        return $this->hasOne(Category::class, 'id', 'status_id');
+        return $this->hasOne(Status::class, 'id', 'status_id');
     }
 
     public function user()

@@ -6,7 +6,7 @@
     <ul>
         @foreach ($statuses as $status)
         <li class="mb-3 ms-3">
-            <a href="{{ route('byStatus', ['id' => $status->id]) }}" class="mb-3 text-decoration-none text-dark">{{ $status->name }}</a>
+            <a href="{{ route('byStatus', ['id' => $status->id]) }}" class="statuses mb-3 text-decoration-none text-dark">{{ $status->name }}</a>
         </li>
         @endforeach
     </ul>
