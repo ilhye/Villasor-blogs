@@ -33,7 +33,8 @@ TO ADD:
 - fix ui (include categories, status, and tags)
 
 CURRENT STATE:
-- associate author and blogs table
+- with comments, likes, and can store tags
 
 REFERENCES:
 - https://stackoverflow.com/questions/35533597/laravel-one-to-many-inserting
+- https://www.fundaofwebit.com/post/different-ways-to-store-data-in-laravel-10 

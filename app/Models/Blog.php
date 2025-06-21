@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use SoftDeletes;
     public $timestamps = false;
-    protected $fillable = ['title', 'description'];
+    protected $guarded = [];
 
     public function category()
     {

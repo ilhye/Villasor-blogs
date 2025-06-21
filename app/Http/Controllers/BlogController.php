@@ -26,22 +26,15 @@ class BlogController extends Controller
     // Create blog post
     public function createBlog(BlogRequest $request)
     {
-        $post = new Blog();
-        $post->title = $request->input('title');
-        $post->image_url = $request->input('image_url');
-        $post->description = $request->input('description');
-        $post->category_id = $request->input('category_id');
-
-        $user = new User();
-        $user = User::firstOrCreate(['name' => $request->input('author')]);
-
-        $post->author_id = $user->id;
-        $post->status_id = $request->input('status_id'); 
-        
-        $post->save();
-
-        $tags = $request->input('tags', []);
-        $post->tags()->attach($tags);
+        $post = Blog::create([
+            'title' => $request->title,
+            'image_url' => $request->image_url,
+            'description' => $request->description,
+            'category_id' => $request->category_id,
+            'author_id' => User::firstOrCreate(['name' => $request->author])->id,
+            'status_id' => $request->status_id
+        ]);
+        $post->tags()->attach($request->input('tags', []));
 
         return redirect()->back()->with('success', 'Post created successfully!');
     }
@@ -103,30 +96,26 @@ class BlogController extends Controller
     // Add comment on specific post
     public function addComment(CommentRequest $request, $id)
     {
+        Comment::create([
+            'blog_id' => $id,
+            'comment' => $request->comment
+        ]);
 
-        $comment = new Comment();
-        $comment->blog_id = $id;
-        $comment->comment = $request->input('comment');
-
-        $comment->save();
         Log::info('Commented successfully');
 
-        return back();
+        return redirect()->back();
     }
 
     // Add a like sa blog post
     public function likeBlog($id)
     {
-        $like_default = 0;
-
-        $like = Like::firstOrCreate(
+        Like::firstOrCreate(
             ['blog_id' => $id],
-            ['likes' => $like_default]
-        );
-        $like->increment('likes');
+            ['likes' => 0]
+        )->increment('likes');
 
         Log::info('Liked successfully');
-        # $like->save();
+
         return redirect()->back();
     }
 
